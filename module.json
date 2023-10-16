@@ -4,9 +4,9 @@
 	"path": "Software",
 	
 	"version": "1.0",
-	"description": "Allow you to control GigPerformer with Chataigne",
-	"url":"",
-	"downloadURL": "",
+	"description": "Allows to control GigPerformer with Chataigne",
+	"url":"https://github.com/ziginfo/GigPerformer-Chataigne-Module",
+	"downloadURL": "https://github.com/ziginfo/GigPerformer-Chataigne-Module/archive/refs/heads/main.zip",
 	
 	"hasInput": true,
 	"hasOutput": true,
