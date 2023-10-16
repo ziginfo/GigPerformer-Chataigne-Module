@@ -1,0 +1,476 @@
+{
+	"name": "GigPerformer",
+	"type": "OSC",
+	"path": "Software",
+	
+	"version": "1.0",
+	"description": "Allow you to control GigPerformer with Chataigne",
+	"url":"",
+	"downloadURL": "",
+	
+	"hasInput": true,
+	"hasOutput": true,
+
+	"hideDefaultCommands": true,
+	"hideDefaultParameters": [],
+
+	"defaults": {
+		"OSC Input": {
+			"localPort" : 54341,
+		},
+		"OSC Outputs": {
+			"OSC Output": {
+				"local" : false,
+				"remoteHost" : "",
+				"remotePort" : 54344,
+				"listenToFeedback":false  }  }
+	},
+	
+	"parameters": {
+	},
+	
+	"scripts": [ "gigperformer.js" ],
+	
+	"values": {
+	},
+	
+	
+	
+"commands": {
+	
+	"Select SetList" : {
+			"menu" : "Song Control",
+			"callback" : "set_setlist",
+			"parameters" : {
+			
+			" Set Song N°": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":20,
+					"useForMapping": true },
+		}  },
+		
+	"Select Song" : {
+			"menu" : "Song Control",
+			"callback" : "set_song",
+			"parameters" : {
+			
+			" Set Song N°": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":100,
+					"useForMapping": true },
+		}  },
+		
+	"Prev Song" : {
+			"menu" : "Song Control",
+			"callback" : "prev_song",
+		},	
+		
+	"Next Song" : {
+			"menu" : "Song Control",
+			"callback" : "next_song",
+		},
+		
+	"SongParts Down" : {
+			"menu" : "Song Control",
+			"callback" : "songpart_down",
+		},
+		
+	"SongParts Up" : {
+			"menu" : "Song Control",
+			"callback" : "songpart_up",
+		},
+		
+	"Set Song Part N°" : {
+			"menu" : "Song Control",
+			"callback" : "set_songpart",
+			"parameters" : {
+			
+			" Set SonPart": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":100,
+					"useForMapping": true },
+		}  },
+		
+	"Prev Song Part" : {
+			"menu" : "Song Control",
+			"callback" : "prev_songpart",
+		},	
+		
+	"Next Song Part" : {
+			"menu" : "Song Control",
+			"callback" : "next_songpart",
+		},
+		
+	"Clear Song Part" : {
+			"menu" : "Song Control",
+			"callback" : "clear_songpart",
+		},
+		
+		
+		
+	"Recall Rack" : {
+			"menu" : "Rack Control",
+			"callback" : "recall_rack",
+			"parameters" : {
+			
+			" Recall Rack N°": {
+					"type": "Integer",
+					"default":1, 
+					"min":1,
+					"max":100,
+					"useForMapping": true },
+		}  },
+		
+	"Recall RackSpace" : {
+			"menu" : "Rack Control",
+			"callback" : "recall_rackspace",
+			"parameters" : {
+			
+			" Recall RackSpace N°": {
+					"type": "Integer",
+					"default":1, 
+					"min":1,
+					"max":100,
+					"useForMapping": true },
+		}  },
+		
+	"Prev RackSpace" : {
+			"menu" : "Rack Control",
+			"callback" : "prev_space",
+		},	
+		
+	"Next RackSpace" : {
+			"menu" : "Rack Control",
+			"callback" : "next_space",
+		},
+		
+	"Prev Variation" : {
+			"menu" : "Rack Control",
+			"callback" : "prev_variation",
+		},	
+		
+	"Next Variation" : {
+			"menu" : "Rack Control",
+			"callback" : "next_variation",
+		},
+		
+	"Move Down" : {
+			"menu" : "Rack Control",
+			"callback" : "move_down",
+		},
+		
+	"Move Up" : {
+			"menu" : "Rack Control",
+			"callback" : "move_up",
+		},
+		
+		
+			
+	"Main Level" : {
+			"menu" : "Main Control",
+			"callback" : "main_level",
+			"parameters" : {
+					
+				"Level": {
+					"type": "Float",
+					"default": 0.7, 
+					"min":0,
+					"max":1,
+					"useForMapping": true }, 			
+			} },
+			
+	"Master Level Full" : {
+			"menu" : "Main Control",
+			"callback" : "level_full",
+		},
+		
+	"Master Mute" : {
+			"menu" : "Main Control",
+			"callback" : "level_mute",
+		},	
+		
+	"Panic" : {
+			"menu" : "Main Control",
+			"callback" : "panic",
+		},
+		
+	"GlobalPlay-on/off" : {
+			"menu" : "Main Control",
+			"callback" : "global_play",
+			"parameters" : {
+					
+			"Choice": {
+					"type": "Enum",
+					"options" : {
+						"ON" : 1,
+						"OFF" :0 } }
+		}  },
+				
+	"Set BPM" : {
+			"menu" : "Main Control",
+			"callback" : "set_bpm",
+			"parameters" : {
+			
+			"Set BPM": {
+					"type": "Integer",
+					"default": 120, 
+					"min":00,
+					"max":360,
+					"useForMapping": true },
+		}  },
+		
+	"OSC-Widget Button" : {
+			"menu" : "OSC-Widget Ctrl",
+			"callback" : "osc_button",
+			"parameters" : {
+			
+			"OSC-Widget Name": {
+					"type": "String",
+					"useForMapping": true },
+					
+			"on/off": {
+					"type": "Enum",
+					"options" : {
+						"ON" : 1.0,
+						"Off" : 0.0 } }
+		}  },
+		
+	"OSC-Widget Encoder" : {
+			"menu" : "OSC-Widget Ctrl",
+			"callback" : "osc_encoder",
+			"parameters" : {
+			
+			"OSC-Widget Name": {
+					"type": "String",
+					"useForMapping": true },
+					
+			"Encoder Level": {
+					"type": "Float",
+					"default": 0.5, 
+					"min":0,
+					"max":1,
+					"useForMapping": true },
+		}  },
+		
+	"OSC-Widget Fader" : {
+			"menu" : "OSC-Widget Ctrl",
+			"callback" : "osc_fader",
+			"parameters" : {
+			
+			"OSC-Widget Name": {
+					"type": "String",
+					"useForMapping": true },
+					
+			"Fader Level": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true },
+		}  },
+		
+	"OSC-Widget SetLabel" : {
+			"menu" : "OSC-Widget Ctrl",
+			"callback" : "osc_label",
+			"parameters" : {
+			
+			"OSC-Widget Name": {
+					"type": "String",
+					"useForMapping": true },
+					
+			"Label": {
+					"type": "String",
+					 }
+		}  },
+		
+	"OSC-Widget ResetValue" : {
+			"menu" : "OSC-Widget Ctrl",
+			"callback" : "reset_value",
+			"parameters" : {
+			
+			"OSC-Widget Name": {
+					"type": "String",
+					"useForMapping": true },
+					
+			"Reset Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true },
+		}  },
+		
+	"OSC-Widget Reset" : {
+			"menu" : "OSC-Widget Ctrl",
+			"callback" : "reset",
+			"parameters" : {
+			
+			"OSC-Widget Name": {
+					"type": "String",
+					"useForMapping": true },
+		
+		}  },
+		
+	"Ableton Link on/off" : {
+			"menu" : "Actions",
+			"callback" : "abletonlink",
+			"parameters" : {
+					
+			"AbletonLink on/off": {
+					"type": "Enum",
+					"options" : {
+						"ON" : 1,
+						"OFF" :0 } }
+		}  },
+		
+	"MIDI CC Message" : {
+			"menu" : "Actions",
+			"callback" : "cc_message",
+			"parameters" : {
+			
+			"Sends a CC-Message to ": {
+					"type": "Enum",
+					"options" : {
+						"OSC Widget" : 1 } },
+			
+			"OSC-Widget Name": {
+					"type": "String",
+					"useForMapping": true },
+			
+			" Set CC Number": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":127,
+					"useForMapping": true },
+					
+			" Set Value": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":127,
+					"useForMapping": true },
+					
+			" Set MIDI Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":16,
+					"useForMapping": true },
+		}  },
+		
+	"MIDI PC Message" : {
+			"menu" : "Actions",
+			"callback" : "pc_message",
+			"parameters" : {
+			
+			"Sends a PC-Message to ": {
+					"type": "Enum",
+					"options" : {
+						"OSC Widget" : 1 } },
+			
+			"OSC-Widget Name": {
+					"type": "String",
+					"useForMapping": true },
+			
+			" Set PC Number": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":127,
+					"useForMapping": true },
+					
+			" Set MIDI Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":16,
+					"useForMapping": true },
+		}  },
+		
+	"MIDI Note Message" : {
+			"menu" : "Actions",
+			"callback" : "note_message",
+			"parameters" : {
+			
+			"Sends a Note-Message to ": {
+					"type": "Enum",
+					"options" : {
+						"OSC Widget" : 1 } },
+			
+			"OSC-Widget Name": {
+					"type": "String",
+					"useForMapping": true },
+			
+			" Set Note Number": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":127,
+					"useForMapping": true },
+					
+			" Velocity/Release": {
+					"type": "Integer",
+					"default": 127, 
+					"min":1,
+					"max":127,
+					"useForMapping": true },
+					
+			" Set MIDI Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":16,
+					"useForMapping": true },
+					
+			"Note on/off": {
+					"type": "Enum",
+					"options" : {
+						"ON" : 1,
+						"OFF" :0 } }
+		}  },
+		
+		
+		
+		
+	"Get SetList" : {
+			"menu" : "Requests",
+			"callback" : "get_setlist",
+		},
+		
+	"Get SongList" : {
+			"menu" : "Requests",
+			"callback" : "get_songlist",
+		},	
+		
+	"Get SongParts" : {
+			"menu" : "Requests",
+			"callback" : "get_songparts",
+		},
+		
+	"Get SetList" : {
+			"menu" : "Requests",
+			"callback" : "get_setlist",
+		},
+		
+	"Get BPM" : {
+			"menu" : "Requests",
+			"callback" : "get_bpm",
+		},
+		
+	"Refresh" : {
+			"menu" : "Requests",
+			"callback" : "refresh",
+		},	
+		
+		
+		
+
+	}
+}
