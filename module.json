@@ -1,9 +1,9 @@
 {
 	"name": "GigPerformer",
 	"type": "OSC",
-	"path": "Software",
+	"path": "Plugin Host",
 	
-	"version": "1.0",
+	"version": "1.2",
 	"description": "Allows to control GigPerformer with Chataigne",
 	"url":"https://github.com/ziginfo/GigPerformer-Chataigne-Module",
 	"downloadURL": "https://github.com/ziginfo/GigPerformer-Chataigne-Module/archive/refs/heads/main.zip",
@@ -12,11 +12,23 @@
 	"hasOutput": true,
 
 	"hideDefaultCommands": true,
-	"hideDefaultParameters": [],
+	"hideDefaultParameters": [
+	"colorSendMode",
+		"autoRange",
+		"autoFeedback",
+		"pass_through",
+		"input",
+		"outputs",
+		"useHierarchy",
+		"colorSendMode",
+		"autoAdd",
+		"booleanSendMode"
+		],
 
 	"defaults": {
 		"OSC Input": {
-			"localPort" : 54341 },
+			"localPort" : 54341
+		},
 		"OSC Outputs": {
 			"OSC Output": {
 				"local" : false,
@@ -47,7 +59,7 @@
 					"default": 1, 
 					"min":1,
 					"max":20,
-					"useForMapping": true },
+					"useForMapping": true }
 		}  },
 		
 	"Select Song" : {
@@ -60,27 +72,27 @@
 					"default": 1, 
 					"min":1,
 					"max":100,
-					"useForMapping": true },
+					"useForMapping": true }
 		}  },
 		
 	"Prev Song" : {
 			"menu" : "Song Control",
-			"callback" : "prev_song",
+			"callback" : "prev_song"
 		},	
 		
 	"Next Song" : {
 			"menu" : "Song Control",
-			"callback" : "next_song",
-		},
-		
-	"SongParts Down" : {
-			"menu" : "Song Control",
-			"callback" : "songpart_down",
+			"callback" : "next_song"
 		},
 		
 	"SongParts Up" : {
 			"menu" : "Song Control",
-			"callback" : "songpart_up",
+			"callback" : "songpart_up"
+		},
+		
+	"SongParts Down" : {
+			"menu" : "Song Control",
+			"callback" : "songpart_down"
 		},
 		
 	"Set Song Part N°" : {
@@ -93,22 +105,22 @@
 					"default": 1, 
 					"min":1,
 					"max":100,
-					"useForMapping": true },
+					"useForMapping": true }
 		}  },
 		
 	"Prev Song Part" : {
 			"menu" : "Song Control",
-			"callback" : "prev_songpart",
+			"callback" : "prev_songpart"
 		},	
 		
 	"Next Song Part" : {
 			"menu" : "Song Control",
-			"callback" : "next_songpart",
+			"callback" : "next_songpart"
 		},
 		
 	"Clear Song Part" : {
 			"menu" : "Song Control",
-			"callback" : "clear_songpart",
+			"callback" : "clear_songpart"
 		},
 		
 		
@@ -123,7 +135,7 @@
 					"default":1, 
 					"min":1,
 					"max":100,
-					"useForMapping": true },
+					"useForMapping": true }
 		}  },
 		
 	"Recall RackSpace" : {
@@ -136,42 +148,40 @@
 					"default":1, 
 					"min":1,
 					"max":100,
-					"useForMapping": true },
+					"useForMapping": true }
 		}  },
 		
 	"Prev RackSpace" : {
 			"menu" : "Rack Control",
-			"callback" : "prev_space",
+			"callback" : "prev_space"
 		},	
 		
 	"Next RackSpace" : {
 			"menu" : "Rack Control",
-			"callback" : "next_space",
+			"callback" : "next_space"
 		},
 		
 	"Prev Variation" : {
 			"menu" : "Rack Control",
-			"callback" : "prev_variation",
+			"callback" : "prev_variation"
 		},	
 		
 	"Next Variation" : {
 			"menu" : "Rack Control",
-			"callback" : "next_variation",
-		},
-		
-	"Move Down" : {
-			"menu" : "Rack Control",
-			"callback" : "move_down",
+			"callback" : "next_variation"
 		},
 		
 	"Move Up" : {
 			"menu" : "Rack Control",
-			"callback" : "move_up",
+			"callback" : "move_up"
 		},
 		
+	"Move Down" : {
+			"menu" : "Rack Control",
+			"callback" : "move_down"
+		},
 		
-			
-	"Main Level" : {
+	"Master Level" : {
 			"menu" : "Main Control",
 			"callback" : "main_level",
 			"parameters" : {
@@ -181,22 +191,22 @@
 					"default": 0.7, 
 					"min":0,
 					"max":1,
-					"useForMapping": true }, 			
+					"useForMapping": true } 			
 			} },
 			
 	"Master Level Full" : {
 			"menu" : "Main Control",
-			"callback" : "level_full",
+			"callback" : "level_full"
 		},
 		
 	"Master Mute" : {
 			"menu" : "Main Control",
-			"callback" : "level_mute",
+			"callback" : "level_mute"
 		},	
 		
 	"Panic" : {
 			"menu" : "Main Control",
-			"callback" : "panic",
+			"callback" : "panic"
 		},
 		
 	"GlobalPlay-on/off" : {
@@ -210,7 +220,7 @@
 						"ON" : 1,
 						"OFF" :0 } }
 		}  },
-				
+		
 	"Set BPM" : {
 			"menu" : "Main Control",
 			"callback" : "set_bpm",
@@ -219,9 +229,22 @@
 			"Set BPM": {
 					"type": "Integer",
 					"default": 120, 
-					"min":00,
+					"min":30,
 					"max":360,
-					"useForMapping": true },
+					"useForMapping": true }
+		}  },
+		
+	"Adjust BPM" : {
+			"menu" : "Main Control",
+			"callback" : "add_bpm",
+			"parameters" : {
+			
+			"Add BPM-Offset": {
+					"type": "Integer",
+					"default": 0, 
+					"min":0,
+					"max":50,
+					"useForMapping": true }
 		}  },
 		
 	"OSC-Widget Button" : {
@@ -254,7 +277,7 @@
 					"default": 0.5, 
 					"min":0,
 					"max":1,
-					"useForMapping": true },
+					"useForMapping": true }
 		}  },
 		
 	"OSC-Widget Fader" : {
@@ -271,7 +294,7 @@
 					"default": 0, 
 					"min":0,
 					"max":1,
-					"useForMapping": true },
+					"useForMapping": true }
 		}  },
 		
 	"OSC-Widget SetLabel" : {
@@ -284,7 +307,7 @@
 					"useForMapping": true },
 					
 			"Label": {
-					"type": "String",
+					"type": "String"
 					 }
 		}  },
 		
@@ -302,7 +325,7 @@
 					"default": 0, 
 					"min":0,
 					"max":1,
-					"useForMapping": true },
+					"useForMapping": true }
 		}  },
 		
 	"OSC-Widget Reset" : {
@@ -312,7 +335,7 @@
 			
 			"OSC-Widget Name": {
 					"type": "String",
-					"useForMapping": true },
+					"useForMapping": true }
 		
 		}  },
 		
@@ -361,7 +384,7 @@
 					"default": 1, 
 					"min":1,
 					"max":16,
-					"useForMapping": true },
+					"useForMapping": true }
 		}  },
 		
 	"MIDI PC Message" : {
@@ -390,7 +413,7 @@
 					"default": 1, 
 					"min":1,
 					"max":16,
-					"useForMapping": true },
+					"useForMapping": true }
 		}  },
 		
 	"MIDI Note Message" : {
@@ -406,6 +429,12 @@
 			"OSC-Widget Name": {
 					"type": "String",
 					"useForMapping": true },
+					
+			"Note on/off": {
+					"type": "Enum",
+					"options" : {
+						"Note-ON" : "On",
+						"Note-OFF" : "Off"} },
 			
 			" Set Note Number": {
 					"type": "Integer",
@@ -426,47 +455,115 @@
 					"default": 1, 
 					"min":1,
 					"max":16,
-					"useForMapping": true },
-					
-			"Note on/off": {
+					"useForMapping": true }
+		}  },
+		
+	"MIDI PB Message" : {
+			"menu" : "Actions",
+			"callback" : "pb_message",
+			"parameters" : {
+			
+			"Sends a PB-Message to ": {
 					"type": "Enum",
 					"options" : {
-						"ON" : 1,
-						"OFF" :0 } }
+						"OSC Widget" : 1 } },
+			
+			"OSC-Widget Name": {
+					"type": "String",
+					"useForMapping": true },
+			
+			" Set PB Amount": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":127,
+					"useForMapping": true },
+					
+			" Set MIDI Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":16,
+					"useForMapping": true }
+		}  },
+		
+		
+	"Full Screen" : {
+			"menu" : "Views",
+			"callback" : "fullscreen"
+		},
+		
+	"Panel View" : {
+			"menu" : "Views",
+			"callback" : "panel_view"
+		},
+		
+		"Wiring View" : {
+			"menu" : "Views",
+			"callback" : "wiring_view"
+		},
+		
+	"SetList View" : {
+			"menu" : "Views",
+			"callback" : "setlist_view"
+		},
+		
+	"Show Tuner" : {
+			"menu" : "Views",
+			"callback" : "tuner",
+			"parameters" : {
+					
+			"Show on/off": {
+					"type": "Enum",
+					"options" : {
+						"Show" : 1,
+						"Hide" :0 } }
 		}  },
 		
 		
 		
-		
 	"Get SetList" : {
 			"menu" : "Requests",
-			"callback" : "get_setlist",
+			"callback" : "get_setlist"
 		},
 		
 	"Get SongList" : {
 			"menu" : "Requests",
-			"callback" : "get_songlist",
+			"callback" : "get_songlist"
 		},	
 		
 	"Get SongParts" : {
 			"menu" : "Requests",
-			"callback" : "get_songparts",
+			"callback" : "get_songparts"
 		},
 		
-	"Get SetList" : {
+	"Get SongPart_no" : {
 			"menu" : "Requests",
-			"callback" : "get_setlist",
+			"callback" : "get_songpart_no",
+			"parameters" : {
+			
+			" SongPart N°": {
+					"type": "Integer",
+					"default":1, 
+					"min":1,
+					"max":100,
+					"useForMapping": true }
+		} },
+		
+	"Get Current Song" : {
+			"menu" : "Requests",
+			"callback" : "CurrentSongName"
 		},
 		
 	"Get BPM" : {
 			"menu" : "Requests",
-			"callback" : "get_bpm",
+			"callback" : "get_bpm"
 		},
 		
 	"Refresh" : {
 			"menu" : "Requests",
-			"callback" : "refresh",
-		},	
+			"callback" : "refresh"
+		}	
 		
 		
 		
